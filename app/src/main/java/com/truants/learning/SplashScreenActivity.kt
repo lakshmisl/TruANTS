@@ -15,11 +15,13 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN){
+            @Suppress("DEPRECATION")
             window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         }
         val backgroundImage:ImageView = findViewById(R.id.logo)
         val slideAnimation = AnimationUtils.loadAnimation(this, R.anim.splash_animation)
         backgroundImage.startAnimation(slideAnimation)
+        @Suppress("DEPRECATION")
         Handler().postDelayed({
             val intent =Intent(this, MainActivity::class.java)
             startActivity(intent)
